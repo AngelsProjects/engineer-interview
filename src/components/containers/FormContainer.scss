@@ -1,0 +1,57 @@
+.Form-Container {
+  display: grid;
+  grid-template-columns: 18% 10% auto 10%;
+  grid-gap: 2%;
+
+  input {
+    font-size: 1.5em;
+    padding: 0.5em;
+    border: 1px solid #000;
+  }
+
+  .Task-Submit-Button {
+    font-size: 2rem;
+    color: #fff;
+    background-color: #0366ff;
+    border-radius: 10px;
+    border-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    text-align: center;
+    height: 100%;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken(#0366ff, 10%);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .Task-Clear-Button {
+    font-size: 1rem;
+    color: #fff;
+    background-color: #fda500;
+    border-radius: 10px;
+    border-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    text-align: center;
+    height: 100%;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken(#fda500, 10%);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

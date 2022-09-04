@@ -1,0 +1,37 @@
+.Arrow-Move-Button {
+  border-radius: 10px;
+  border-color: transparent;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.Arrow-Direction-Left {
+  background-color: #c2140b;
+
+  &:hover {
+    background-color: #d04139;
+  }
+
+  &:disabled {
+    background-color: #fc9e9e;
+  }
+}
+
+.Arrow-Direction-Right {
+  background-color: #218d1f;
+
+  &:hover {
+    background-color: #3ea53c;
+  }
+
+  &:disabled {
+    background-color: #8baf8c;
+  }
+}

@@ -1,0 +1,19 @@
+@import '../../styles/variables';
+
+.State-Container {
+  @extend %box-shadowed;
+  width: 30%;
+  margin-top: 2%;
+  height: 60vh;
+
+  .State-Container-Header h1 {
+    text-align: center;
+  }
+
+  .State-Container-Body {
+    padding: 0 5%;
+    height: 80%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+}

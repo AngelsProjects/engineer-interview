@@ -1,100 +1,138 @@
-## Video Intro
-https://www.loom.com/share/3df7fcb5424644638b00724cb178e2ff
+# To Do app with React and TypeScript
 
-* [Getting Started with the Every.io engineering challenge.](#getting-started-with-the-everyio-engineering-challenge)
-  * [The biggest factor will be your code:](#the-biggest-factor-will-be-your-code)
-  * [Requirements](#requirements)
-  * [Quick Start](#quick-start)
-* [Original CRA README below](#original-cra-readme-below)
-  * [Getting Started with Create React App](#getting-started-with-create-react-app)
-  * [Available Scripts](#available-scripts)
-    * [`yarn start`](#yarn-start)
-    * [`yarn test`](#yarn-test)
-    * [`yarn build`](#yarn-build)
-    * [`yarn eject`](#yarn-eject)
-  * [Learn More](#learn-more)
+This is a simple TODO app with React and TypeScript. It is based on the [React TypeScript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/docs/basic/setup/).
 
+Based on the requirements of the [Every Engineer Interview Repository](https://github.com/every-io/engineer-interview/blob/main/README.md).
 
-# Getting Started with the Every.io engineering challenge.
-Thanks for taking the time to complete the Every.io code challenge. Don't worry, it's not too hard, and please do not spend more than an hour or two. We know you have lots of these to do, and it can be very time consuming. If you feel like adding fancy animations, or getting all hip and fresh with the design, go ahead, but it won't earn you any extra points.
-## The biggest factor will be your code:
-1. How readable, is your code.
-2. How did you organize your components.
-3. Are there any bugs.
+## Technical Requirements
 
-## Requirements
-
-[See the prototype for an example.](https://www.figma.com/proto/kd49ArXbBt0vi1kBSLkmC1/Code-Challenge?node-id=1%3A2&scaling=min-zoom&page-id=0%3A1)
-
-You will be creating a basic todo list, with the following functionality.
-1. The list has 3 states. Each represented by a column. Similar to Trello.
-   1. `Todo`
-   2. `In Progress`
-   3. `Done`
-2. Each list item has a right and left arrow button.
-   1. The right arrow moves the list item from:
-      1. `Todo` to `In Progress`
-      2. `In Progress` to `Done`
-   2. The Left arrow moves the list item from
-      1. `Done` to `In Progress`
-      2. `In Progress` to `Todo`
-3. If the list in the in the `Todo` column, the left button should be disabled
-4. If the list is in the `Done` column, the right button should be disabled.
-5. There should be form with a text input below the buttons. When the user submits the form, the text from the text input should be added to a new todo item in the `Todo` column.
+- Node.js 14.x or 16.x
+- React 18.x
+- TypeScript 4.x
 
 ## Quick Start
-1. npm install
-2. npm run start
+
+1. `npm install`
+2. `npm run start`
 3. open your browser to http://localhost:3000
-4. Delete the `h2` from the component in `src/ChallengeComponent.tsx`
-5. Add your code to that component.
 
+## Features
 
------------------------
-# Original CRA README below
-## Getting Started with Create React App
+- Add a new TODO item
+- Move TODO items between columns
+- Delete TODO items
+- Clear all TODO items
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## How to use
 
-## Available Scripts
+1. Add a new TODO item by typing in the input field and pressing enter or clicking the "+" button.
+2. Move TODO items between columns by clicking the left or right arrow buttons in the task item.
+3. Delete TODO items by clicking the "Delete" button (trash can icon).
+4. Clear all TODO items by clicking the "Clear Board" button on the bottom right side of the page.
+5. The left arrow button is disabled if the TODO item is in the "To Do" column.
+6. The right arrow button is disabled if the TODO item is in the "Done" column.
 
-In the project directory, you can run:
+## How to run tests
 
-### `yarn start`
+1. `npm run test`
+2. look at the test results in the terminal
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+   Sample image of test results in the terminal:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+   ![Tests results](./images/tests.png?raw=true 'Tests')
 
-### `yarn test`
+## How to build
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. `npm run build`
+2. look at the build results in the `build` folder
 
-### `yarn build`
+## How to lint
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. `npm run lint`
+2. look at the lint results in the terminal
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   Sample image of lint results in the terminal:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```
+   $ eslint --ext .js,.jsx,.ts,.tsx src/
+   ✨  Done in 1.35s.
+   ```
 
-### `yarn eject`
+## How to format
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. `npm run format`
+2. look at the format results in the terminal
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   Sample of format results in the terminal:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+   ```
+   $ prettier --write src/**/*.{ts,tsx,css,scss}
+   src/constants/states.ts 180ms
+   src/hooks/redux.ts 5ms
+   src/interfaces/state.ts 3ms
+   src/interfaces/task.ts 3ms
+   src/store/index.ts 7ms
+   src/store/taskSlice.test.ts 29ms
+   src/store/taskSlice.ts 17ms
+   src/types/buttons.ts 3ms
+   src/types/containers.ts 2ms
+   src/types/inputs.ts 2ms
+   src/utils/test-utils.tsx 6ms
+   src/App.css 18ms
+   src/index.css 2ms
+   src/styles/variables.scss 2ms
+   ✨  Done in 0.63s.
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## How to run code coverage report
 
-## Learn More
+1. `npm run coverage`
+2. See the `coverage` folder for the report.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   Sample image of code coverage report in terminal:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ![Code coverage report](./images/coverage.png?raw=true 'Code coverage report')
+
+## Github Actions
+
+This project uses Github Actions to run tests and linting on every push and pull request.
+You can see the results in the "Actions" tab.
+
+## Final Product Screenshots
+
+![Evidence 1](./images/evidence1.png?raw=true 'Evidence 1')
+![Evidence 2](./images/evidence2.png?raw=true 'Evidence 2')
+![Evidence 3](./images/evidence3.png?raw=true 'Evidence 3')
+![Evidence 4](./images/evidence4.png?raw=true 'Evidence 4')
+![Evidence 5](./images/evidence5.png?raw=true 'Evidence 5')
+![Evidence 6](./images/evidence6.png?raw=true 'Evidence 6')
+![Evidence 6](./images/evidence7.png?raw=true 'Evidence 7')
+
+## Dependencies
+
+- [@reduxjs/toolkit](https://redux-toolkit.js.org)
+- [clsx](https://github.com/lukeed/clsx#readme)
+- [React](https://reactjs.org/)
+- [React DOM](https://reactjs.org/docs/react-dom.html)
+- [React Hook Form](https://react-hook-form.com/)
+- [React Redux](https://react-redux.js.org/)
+- [uuid](https://github.com/uuidjs/uuid#readme)
+- [Web Vitals](https://github.com/GoogleChrome/web-vitals#readme)
+
+## Dev Dependencies
+
+- [@faker-js/faker](https://github.com/faker-js/faker#readme)
+- [@testing-library/jest-dom](https://github.com/testing-library/jest-dom#readme)
+- [@testing-library/react](https://github.com/testing-library/react-testing-library#readme)
+- [@testing-library/user-event](https://github.com/testing-library/user-event#readme)
+- [@types/jest](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jest)
+- [@types/node](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node)
+- [@types/react](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react)
+- [@types/react-dom](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react-dom)
+- [@types/react-redux](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react-redux)
+- [@types/uuid](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/uuid)
+- [eslint](https://eslint.org/)
+- [prettier](https://prettier.io/)
+- [react-scripts](https://github.com/facebook/create-react-app#readme)
+- [sass](https://sass-lang.com/)
+- [typescript](https://www.typescriptlang.org/)

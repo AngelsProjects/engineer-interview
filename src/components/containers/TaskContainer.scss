@@ -1,0 +1,54 @@
+@import '../../styles/variables';
+
+.Task-Container {
+  @extend %box-shadowed;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2.5%;
+  margin-top: 2.5%;
+  padding: 3%;
+  box-shadow: 2px 7px 15px 3px rgba(0, 0, 0, 0.5);
+  position: relative;
+
+  .Task-Delete-Button {
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    padding: 3px;
+    background-color: red;
+    border-color: transparent;
+    color: white;
+    border-radius: 50%;
+    z-index: 2;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken(red, 10%);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    .Task-Trash-Icon {
+      fill: #fff;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  h3 {
+    cursor: pointer;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 1.2em;
+    white-space: nowrap;
+    text-align: center;
+    width: 95%;
+  }
+
+  .Task-Show-Full-Task {
+    height: auto;
+    white-space: normal;
+  }
+}
