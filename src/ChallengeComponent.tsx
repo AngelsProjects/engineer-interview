@@ -14,12 +14,16 @@ import { useAppDispatch } from './hooks/redux';
  *
  * @returns React Component
  */
-export function ChallengeComponent() {
+export function ChallengeComponent({
+  testMode = false,
+}: {
+  testMode?: boolean;
+}) {
   const { data, isLoading }: any = useGetIssuesQuery('');
   const dispatch = useAppDispatch();
   useEffect(() => {
-    if (data) dispatch(fillBoard(data));
-  }, [data, dispatch, isLoading]);
+    if (data && !testMode) dispatch(fillBoard(data));
+  }, [data, dispatch, isLoading, testMode]);
 
   return (
     <>

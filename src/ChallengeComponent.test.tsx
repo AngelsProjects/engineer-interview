@@ -6,7 +6,7 @@ import { renderWithProviders } from './utils/test-utils';
 
 describe('ChallengeComponent', () => {
   test('should render', () => {
-    renderWithProviders(<ChallengeComponent />, {
+    renderWithProviders(<ChallengeComponent testMode={true} />, {
       preloadedState: {
         tasks: {
           0: [],
@@ -20,15 +20,18 @@ describe('ChallengeComponent', () => {
   });
 
   test('should add a task', async () => {
-    const { store } = renderWithProviders(<ChallengeComponent />, {
-      preloadedState: {
-        tasks: {
-          0: [],
-          1: [],
-          2: [],
+    const { store } = renderWithProviders(
+      <ChallengeComponent testMode={true} />,
+      {
+        preloadedState: {
+          tasks: {
+            0: [],
+            1: [],
+            2: [],
+          },
         },
-      },
-    });
+      }
+    );
     const input = screen.getByPlaceholderText('Add Task') as HTMLInputElement;
     const button = screen.getByText('+');
     const taskName = faker.lorem.sentence(5);
@@ -42,15 +45,18 @@ describe('ChallengeComponent', () => {
   });
 
   test('should move a task to the next state', async () => {
-    const { store } = renderWithProviders(<ChallengeComponent />, {
-      preloadedState: {
-        tasks: {
-          0: [],
-          1: [],
-          2: [],
+    const { store } = renderWithProviders(
+      <ChallengeComponent testMode={true} />,
+      {
+        preloadedState: {
+          tasks: {
+            0: [],
+            1: [],
+            2: [],
+          },
         },
-      },
-    });
+      }
+    );
     const input = screen.getByPlaceholderText('Add Task') as HTMLInputElement;
     const button = screen.getByText('+');
     const taskName = faker.lorem.sentence(5);
@@ -66,15 +72,18 @@ describe('ChallengeComponent', () => {
   });
 
   test('should move a task to the previous state', async () => {
-    const { store } = renderWithProviders(<ChallengeComponent />, {
-      preloadedState: {
-        tasks: {
-          0: [],
-          1: [],
-          2: [],
+    const { store } = renderWithProviders(
+      <ChallengeComponent testMode={true} />,
+      {
+        preloadedState: {
+          tasks: {
+            0: [],
+            1: [],
+            2: [],
+          },
         },
-      },
-    });
+      }
+    );
     const input = screen.getByPlaceholderText('Add Task') as HTMLInputElement;
     const button = screen.getByText('+');
     const taskName = faker.lorem.sentence(5);
@@ -92,15 +101,18 @@ describe('ChallengeComponent', () => {
   });
 
   test('should not move a task to the previous state when it is in the first state', async () => {
-    const { store } = renderWithProviders(<ChallengeComponent />, {
-      preloadedState: {
-        tasks: {
-          0: [],
-          1: [],
-          2: [],
+    const { store } = renderWithProviders(
+      <ChallengeComponent testMode={true} />,
+      {
+        preloadedState: {
+          tasks: {
+            0: [],
+            1: [],
+            2: [],
+          },
         },
-      },
-    });
+      }
+    );
     const input = screen.getByPlaceholderText('Add Task') as HTMLInputElement;
     const button = screen.getByText('+');
     const taskName = faker.lorem.sentence(5);
@@ -116,15 +128,18 @@ describe('ChallengeComponent', () => {
   });
 
   test('should not move a task to the next state when it is in the last state', async () => {
-    const { store } = renderWithProviders(<ChallengeComponent />, {
-      preloadedState: {
-        tasks: {
-          0: [],
-          1: [],
-          2: [],
+    const { store } = renderWithProviders(
+      <ChallengeComponent testMode={true} />,
+      {
+        preloadedState: {
+          tasks: {
+            0: [],
+            1: [],
+            2: [],
+          },
         },
-      },
-    });
+      }
+    );
     const input = screen.getByPlaceholderText('Add Task') as HTMLInputElement;
     const button = screen.getByText('+');
     const taskName = faker.lorem.sentence(5);
