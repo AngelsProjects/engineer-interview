@@ -65,12 +65,10 @@ describe('Task Container Component', () => {
       'arrow-move-button-right'
     );
     rightArrowButtonElement.click();
-    expect(store.getState()).toEqual({
-      tasks: {
-        0: [],
-        1: [{ ...task, stateId: EnumStateId.InProgress }],
-        2: [],
-      },
+    expect(store.getState().tasks).toEqual({
+      0: [],
+      1: [{ ...task, stateId: EnumStateId.InProgress }],
+      2: [],
     });
   });
 
@@ -91,12 +89,10 @@ describe('Task Container Component', () => {
     });
     const leftArrowButtonElement = screen.getByTestId('arrow-move-button-left');
     leftArrowButtonElement.click();
-    expect(store.getState()).toEqual({
-      tasks: {
-        0: [{ ...task, stateId: EnumStateId.ToDo }],
-        1: [],
-        2: [],
-      },
+    expect(store.getState().tasks).toEqual({
+      0: [{ ...task, stateId: EnumStateId.ToDo }],
+      1: [],
+      2: [],
     });
   });
 
@@ -159,12 +155,10 @@ describe('Task Container Component', () => {
       'arrow-move-button-right'
     );
     rightArrowButtonElement.click();
-    expect(store.getState()).toEqual({
-      tasks: {
-        0: [],
-        1: [],
-        2: [task],
-      },
+    expect(store.getState().tasks).toEqual({
+      0: [],
+      1: [],
+      2: [task],
     });
   });
 
@@ -185,12 +179,10 @@ describe('Task Container Component', () => {
     });
     const leftArrowButtonElement = screen.getByTestId('arrow-move-button-left');
     leftArrowButtonElement.click();
-    expect(store.getState()).toEqual({
-      tasks: {
-        0: [task],
-        1: [],
-        2: [],
-      },
+    expect(store.getState().tasks).toEqual({
+      0: [task],
+      1: [],
+      2: [],
     });
   });
 
@@ -212,12 +204,10 @@ describe('Task Container Component', () => {
     const deleteButtonElement = screen.getByTestId('delete-button');
     const user = userEvent.setup();
     await user.click(deleteButtonElement);
-    expect(store.getState()).toEqual({
-      tasks: {
-        0: [],
-        1: [],
-        2: [],
-      },
+    expect(store.getState().tasks).toEqual({
+      0: [],
+      1: [],
+      2: [],
     });
   });
 });

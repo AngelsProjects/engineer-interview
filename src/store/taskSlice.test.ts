@@ -1,12 +1,12 @@
-import { addTask, deleteTask, clearBoard, moveTask } from "./taskSlice";
-import { EnumStateId } from "../interfaces/state";
-import Task from "../interfaces/task";
-import { Direction } from "../types/buttons";
-import { setupStore } from "./index";
-import { faker } from "@faker-js/faker";
+import { addTask, deleteTask, clearBoard, moveTask } from './taskSlice';
+import { EnumStateId } from '../interfaces/state';
+import Task from '../interfaces/task';
+import { Direction } from '../types/buttons';
+import { setupStore } from './index';
+import { faker } from '@faker-js/faker';
 
-describe("taskSlice reducer", () => {
-  it("should handle initial state", () => {
+describe('taskSlice reducer', () => {
+  it('should handle initial state', () => {
     expect(setupStore().getState().tasks).toEqual({
       [EnumStateId.ToDo]: [],
       [EnumStateId.InProgress]: [],
@@ -14,7 +14,7 @@ describe("taskSlice reducer", () => {
     });
   });
 
-  it("should handle addTask", () => {
+  it('should handle addTask', () => {
     const taskName = faker.lorem.sentence(5);
     const store = setupStore();
     store.dispatch(addTask(taskName));
@@ -27,10 +27,10 @@ describe("taskSlice reducer", () => {
         taskAdded,
       },
     };
-    expect(store.getState()).toEqual(expected);
+    expect(store.getState().tasks).toEqual(expected.tasks);
   });
 
-  it("should handle moveTask to the right", () => {
+  it('should handle moveTask to the right', () => {
     const task: Task = {
       id: faker.datatype.uuid(),
       taskName: faker.lorem.sentence(5),
@@ -51,10 +51,10 @@ describe("taskSlice reducer", () => {
       },
     };
     store.dispatch(moveTask({ direction: Direction.Right, task }));
-    expect(store.getState()).toEqual(expected);
+    expect(store.getState().tasks).toEqual(expected.tasks);
   });
 
-  it("should handle moveTask to the left", () => {
+  it('should handle moveTask to the left', () => {
     const task: Task = {
       id: faker.datatype.uuid(),
       taskName: faker.lorem.sentence(5),
@@ -75,10 +75,10 @@ describe("taskSlice reducer", () => {
       },
     };
     store.dispatch(moveTask({ direction: Direction.Left, task }));
-    expect(store.getState()).toEqual(expected);
+    expect(store.getState().tasks).toEqual(expected.tasks);
   });
 
-  it("should handle clearBoard", () => {
+  it('should handle clearBoard', () => {
     const task = {
       id: faker.datatype.uuid(),
       taskName: faker.lorem.sentence(5),
@@ -99,10 +99,10 @@ describe("taskSlice reducer", () => {
       },
     };
     store.dispatch(clearBoard());
-    expect(store.getState()).toEqual(expected);
+    expect(store.getState().tasks).toEqual(expected.tasks);
   });
 
-  it("should delete a task from the board", () => {
+  it('should delete a task from the board', () => {
     const task = {
       id: faker.datatype.uuid(),
       taskName: faker.lorem.sentence(5),
@@ -123,6 +123,6 @@ describe("taskSlice reducer", () => {
       },
     };
     store.dispatch(deleteTask(task));
-    expect(store.getState()).toEqual(expected);
+    expect(store.getState().tasks).toEqual(expected.tasks);
   });
 });

@@ -32,13 +32,11 @@ describe('Form Container Component', () => {
     await user.click(buttonElement);
     expect(inputElement).toHaveValue('');
     const taskAdded = store.getState().tasks.taskAdded;
-    expect(store.getState()).toEqual({
-      tasks: {
-        0: [taskAdded],
-        1: [],
-        2: [],
-        taskAdded,
-      },
+    expect(store.getState().tasks).toEqual({
+      0: [taskAdded],
+      1: [],
+      2: [],
+      taskAdded,
     });
   });
 
@@ -54,12 +52,10 @@ describe('Form Container Component', () => {
     // Remove the task from the store
     const button = screen.getByTestId('clear-button');
     await user.click(button);
-    expect(store.getState()).toEqual({
-      tasks: {
-        0: [],
-        1: [],
-        2: [],
-      },
+    expect(store.getState().tasks).toEqual({
+      0: [],
+      1: [],
+      2: [],
     });
   });
 });

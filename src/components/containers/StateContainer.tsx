@@ -17,14 +17,13 @@ function StateContainer({ state }: StateContainerProps) {
   const tasks = useAppSelector((rootState: RootState) => {
     return rootState.tasks[state.id];
   });
-
   return (
     <div className='State-Container'>
       <div className='State-Container-Header'>
         <h1 data-testid='state-title'>{state.title}</h1>
       </div>
       <div className='State-Container-Body'>
-        {tasks.map((task: Task) => (
+        {tasks?.map((task: Task) => (
           <TaskContainer key={task.id} task={task} />
         ))}
       </div>
