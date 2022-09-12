@@ -6,13 +6,29 @@ import FormContainer from './FormContainer';
 
 describe('Form Container Component', () => {
   test('renders FormContainer component', () => {
-    renderWithProviders(<FormContainer />);
+    renderWithProviders(<FormContainer />, {
+      preloadedState: {
+        tasks: {
+          0: [],
+          1: [],
+          2: [],
+        },
+      },
+    });
     const formElement = screen.getByRole('form', { name: /Add a new task/i });
     expect(formElement).toBeInTheDocument();
   });
 
   test('should add task to redux store when form is submitted', async () => {
-    renderWithProviders(<FormContainer />);
+    renderWithProviders(<FormContainer />, {
+      preloadedState: {
+        tasks: {
+          0: [],
+          1: [],
+          2: [],
+        },
+      },
+    });
     const inputElement = screen.getByPlaceholderText('Add Task');
     const user = userEvent.setup();
     await user.type(inputElement, 'New Task');
@@ -21,7 +37,15 @@ describe('Form Container Component', () => {
   });
 
   test('should add task to redux store when clicked the submit button', async () => {
-    const { store } = renderWithProviders(<FormContainer />);
+    const { store } = renderWithProviders(<FormContainer />, {
+      preloadedState: {
+        tasks: {
+          0: [],
+          1: [],
+          2: [],
+        },
+      },
+    });
     const inputElement = screen.getByPlaceholderText(
       'Add Task'
     ) as HTMLInputElement;
@@ -41,7 +65,15 @@ describe('Form Container Component', () => {
   });
 
   test('should clear board when clicked the Clear Button', async () => {
-    const { store } = renderWithProviders(<FormContainer />);
+    const { store } = renderWithProviders(<FormContainer />, {
+      preloadedState: {
+        tasks: {
+          0: [],
+          1: [],
+          2: [],
+        },
+      },
+    });
     // Add a task to the store
     const inputElement = screen.getByPlaceholderText('Add Task');
     const user = userEvent.setup();

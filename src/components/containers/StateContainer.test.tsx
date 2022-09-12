@@ -17,25 +17,57 @@ const WrappedState2Container = () => {
 
 describe('State Container Component', () => {
   test('renders StateContainer component', () => {
-    renderWithProviders(<WrappedState0Container />);
+    renderWithProviders(<WrappedState0Container />, {
+      preloadedState: {
+        tasks: {
+          0: [],
+          1: [],
+          2: [],
+        },
+      },
+    });
     const stateContainerElement = screen.getByTestId('state-title');
     expect(stateContainerElement).toBeInTheDocument();
   });
 
   test('should render the correct state title (To Do)', () => {
-    renderWithProviders(<WrappedState0Container />);
+    renderWithProviders(<WrappedState0Container />, {
+      preloadedState: {
+        tasks: {
+          0: [],
+          1: [],
+          2: [],
+        },
+      },
+    });
     const stateContainerElement = screen.getByTestId('state-title');
     expect(stateContainerElement.textContent).toBe('To Do');
   });
 
   test('should render the correct state title (In Progress)', () => {
-    renderWithProviders(<WrappedState1Container />);
+    renderWithProviders(<WrappedState1Container />, {
+      preloadedState: {
+        tasks: {
+          0: [],
+          1: [],
+          2: [],
+        },
+      },
+    });
     const stateContainerElement = screen.getByTestId('state-title');
     expect(stateContainerElement.textContent).toBe('In Progress');
   });
 
   test('should render the correct state title (Done)', () => {
-    renderWithProviders(<WrappedState2Container />);
+    renderWithProviders(<WrappedState2Container />, {
+      preloadedState: {
+        tasks: {
+          0: [],
+          1: [],
+          2: [],
+        },
+      },
+    });
     const stateContainerElement = screen.getByTestId('state-title');
     expect(stateContainerElement.textContent).toBe('Done');
   });
